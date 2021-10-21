@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["mmcs-sfedu"]
   spec.email         = ["poganesyan@sfedu.ru"]
 
-  spec.summary       = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description   = "TODO: Write a longer description or delete this line."
+  spec.summary       = "This gem makes an emotional assessment of the text"
+  spec.description   = "gem makes an emotional assessment of the text which can be represented as estimates from 1 to 10 levels of presence of aggression in the text  "
   spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.4.0"
