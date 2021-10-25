@@ -1,3 +1,6 @@
+[![Build](https://github.com/AKGRif/sentiment/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/AKGRif/sentiment/actions/workflows/ci.yml)
+<a href="https://codeclimate.com/github/AKGRif/sentiment/maintainability"><img src="https://api.codeclimate.com/v1/badges/1b6e3e773b5f04bc7231/maintainability" /></a>
+<a href="https://codeclimate.com/github/AKGRif/sentiment/test_coverage"><img src="https://api.codeclimate.com/v1/badges/1b6e3e773b5f04bc7231/test_coverage" /></a>
 # Sentiment
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sentiment`. To experiment with that code, run `bin/console` for an interactive prompt.
