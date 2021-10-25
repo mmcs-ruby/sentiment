@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description   = "gem makes an emotional assessment of the text which can be represented as estimates 0 or 1."
   spec.homepage      = "https://github.com/AKGRif/sentiment"
   spec.license       = "MIT"
-  spec.required_ruby_version = ">= 2.4.0"
+  spec.required_ruby_version = ">= 2.7.0"
 
   spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
