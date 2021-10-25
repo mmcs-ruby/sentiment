@@ -34,7 +34,7 @@ jobs:
     - uses: actions/cache@v2
       with:
         path: vendor/bundle
-        key: f34a79c102113be355c87290141c96d62d3165d61c0b929d3bafe76c8e1c3925
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-gems-
     - name: Run the default task
