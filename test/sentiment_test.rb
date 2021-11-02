@@ -11,3 +11,4 @@ class SentimentTest < Minitest::Test
     assert true
   end
 end
+

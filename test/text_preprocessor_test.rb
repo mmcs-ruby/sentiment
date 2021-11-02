@@ -6,7 +6,7 @@ class Text_preprocessor_test < Minitest::Test
 
   def setup
 
-    #test1
+    #test1 
 
     @corpus11 = [%w[кот собак кот],%w[лаб контрольн контрольн семинар],%w[экзамен сесс контрольн сесс]]
     @dictionary11 = words_in_corpus_frequency(@corpus11) # count words' frequency in @corpus11

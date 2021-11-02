@@ -17,7 +17,7 @@ module Sentiment
       }
 
       # finding of frequency of each word in corpus
-      corpus.each {
+      corpus.each { 
         |text| text.each {
           |word| dictionary_frequency[word] = dictionary_frequency[word] + 1
         }
