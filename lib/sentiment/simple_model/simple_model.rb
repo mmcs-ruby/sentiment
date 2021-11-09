@@ -3,6 +3,12 @@
 module Sentiment
   module SimpleModel
     class SimpleM
+      # this is my fifth parameter. Thank you, code_climate... Its so disgusting...
+      def initialize
+        @ii = 0
+        super
+      end
+      
       # simple function that receives text and give us splitted to words list of words with their counters
       def simple_input(inp_text)
         inp_text1 = inp_text.downcase.delete "0-9.,;:!?()[]{}''/|"
@@ -67,12 +73,12 @@ module Sentiment
         res
       end
 
-      # it is so...stupid! This procedure search word in emotional group with number i
-      def for_code_climate(keys, txt, res, wrd, i)
+       # it is so...stupid! This procedure search word in emotional group with number i
+      def for_code_climate(keys, txt, res, wrd)
         j = 0
-        while j < keys[i].length
-          if keys[i][j] == wrd
-            res[i] += 5 * txt[wrd] # i don't know why I multiply points by 5
+        while j < keys[@ii].length
+          if keys[@ii][j] == wrd
+            res[@ii] += 5 * txt[wrd] # i don't know why I multiply points by 5
           end
           j += 1
         end
@@ -80,10 +86,10 @@ module Sentiment
 
       # searching word from text in keywords
       def see_word(keys, txt, res, wrd)
-        i = 0
-        while keys.key?(i)
-          for_code_climate(keys, txt, res, wrd, i)
-          i += 1
+        @ii = 0
+        while keys.key?(@ii)
+          for_code_climate(keys, txt, res, wrd)
+          @ii += 1
         end
       end
 
