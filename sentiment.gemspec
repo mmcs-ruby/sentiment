@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = "This gem makes an emotional assessment of the text"
   spec.description   = "gem makes an emotional assessment of the text which can be represented as estimates 0 or 1."
-  spec.homepage      = "https://github.com/AKGRif/sentiment"
+  spec.homepage      = "https://github.com/AndreyKondakovGW/sentiment"
   spec.license       = "MIT"
   spec.required_ruby_version = ">= 2.7.0"
 
