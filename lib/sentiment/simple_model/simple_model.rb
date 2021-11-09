@@ -55,9 +55,8 @@ module Sentiment
         keys
       end
 
-      # this function can give us information about keywords in text and about emotions of speaker. It's oversimplified
-      # model. Its receive 2 hashes - keys and processed text
-      def simple_sentiment(keys, txt)
+      # Initialize res hash for simple_sentiment
+      def init_res(keys)
         res = {} # there is our result with structure 0:25, 1:5, 2:20... where first value - code of emotion
         # group and second - points of emotion
         i = 0
@@ -65,6 +64,13 @@ module Sentiment
           res[i] = 0
           i += 1
         end
+        res
+      end
+
+      # this function can give us information about keywords in text and about emotions of speaker. It's oversimplified
+      # model. Its receive 2 hashes - keys and processed text
+      def simple_sentiment(keys, txt)
+        res = init_res(keys)
         txt.each_key do |wrd| # for each word in our counted text.split we looking for keyword
           i = 0
           while keys.key?(i)
