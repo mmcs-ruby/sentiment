@@ -58,11 +58,11 @@ module Sentiment
             text.delete_at(i)
             # after we delete word we dec the num of words that should be deleted
             count_delete = count_delete - 1
+            if count_delete <= 0
+              return corpus
+            end
           else
             i = i+1
-          end
-          if count_delete <= 0
-            return corpus
           end
         end
       }
