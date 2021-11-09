@@ -53,20 +53,19 @@ module Sentiment
       corpus.each{
         |text|
         i=0
-        while(i<text.size)
+        while i < text.size
           if text[i] == word
             text.delete_at(i)
             # after we delete word we dec the num of words that should be deleted
             count_delete = count_delete - 1
-            i=i-1
+          else
+            i = i+1
           end
-          i = i+1
-          break if count_delete <= 0 # finish to delete and return res (out corpus)
+          if count_delete <= 0
+            return corpus
+          end
         end
-        break if count_delete <= 0 # finish to delete and return res (out corpus)
       }
-      #return changed corpus
-      corpus
     end
 
     # function which deletes words with very high and very low frequency
