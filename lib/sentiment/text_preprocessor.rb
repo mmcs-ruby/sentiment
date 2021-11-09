@@ -49,20 +49,26 @@ module Sentiment
     end
 
     #function which goes to text and deletes word
-    def delete_word_in_text(corpus,text,word,count_delete)
-
+    def delete_word_in_text(text,i,word,count_delete)
+      if text[i]==word
+        text.delete_at(i)
+        count_delete = count_delete - 1
+      else
+        i=i+1
+      end
+      [text,i,count_delete]
     end
 
     # second happening : function deleting some of entries of word with highest frequency
     def delete_word_with_high_frequency(corpus,word,count_delete)
-      corpus.each{ |text| i=0
+      corpus.each{
+        |text|
+        i=0
         while i < text.size
-          if text[i] == word
-            text.delete_at(i)
-            count_delete = count_delete - 1
-          else
-            i = i+1
-          end
+          values=delete_word_in_text(text,i,word,count_delete)
+          text=values[0]
+          i=values[1]
+          count_delete=values[2]
           if count_delete <= 0
             return corpus
           end
