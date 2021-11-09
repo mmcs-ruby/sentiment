@@ -67,17 +67,22 @@ module Sentiment
         res
       end
 
+      # it is so...stupid! This procedure search word in emotional group with number i
+      def for_code_climate(keys, txt, res, wrd, i)
+        j = 0
+        while j < keys[i].length
+          if keys[i][j] == wrd
+            res[i] += 5 * txt[wrd] # i don't know why I multiply points by 5
+          end
+          j += 1
+        end
+      end
+
       # searching word from text in keywords
       def see_word(keys, txt, res, wrd)
         i = 0
         while keys.key?(i)
-          j = 0
-          while j < keys[i].length
-            if keys[i][j] == wrd
-              res[i] += 5 * txt[wrd] # i don't know why I multiply points by 5
-            end
-            j += 1
-          end
+          for_code_climate(keys, txt, res, wrd, i)
           i += 1
         end
       end
