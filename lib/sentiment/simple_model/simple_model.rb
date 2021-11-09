@@ -67,22 +67,27 @@ module Sentiment
         res
       end
 
+      # searching word from text in keywords
+      def see_word(keys, txt, res, wrd)
+        i = 0
+        while keys.key?(i)
+          j = 0
+          while j < keys[i].length
+            if keys[i][j] == wrd
+              res[i] += 5 * txt[wrd] # i don't know why I multiply points by 5
+            end
+            j += 1
+          end
+          i += 1
+        end
+      end
+
       # this function can give us information about keywords in text and about emotions of speaker. It's oversimplified
       # model. Its receive 2 hashes - keys and processed text
       def simple_sentiment(keys, txt)
         res = init_res(keys)
         txt.each_key do |wrd| # for each word in our counted text.split we looking for keyword
-          i = 0
-          while keys.key?(i)
-            j = 0
-            while j < keys[i].length
-              if keys[i][j] == wrd
-                res[i] += 5 * txt[wrd] # i don't know why I multiply points by 5
-              end
-              j += 1
-            end
-            i += 1
-          end
+          see_word(keys, txt, res, wrd)
         end
         res
       end
