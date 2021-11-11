@@ -4,6 +4,8 @@ module Sentiment
 
   module TfIdf
 
+    # calculates TF of every word in list
+    # returns hash {'word' => TF(word)} without duplicate
     def clcTF(list)
       tf = { }
       count = list.length
@@ -19,6 +21,8 @@ module Sentiment
       return tf
     end
 
+    # calculates IDF of every word in list
+    # returns hash {'word' => IDF(word)} without duplicate
     def clcIDF(list)
       idf = { }
       count = list.length
@@ -34,7 +38,9 @@ module Sentiment
       return idf
     end
 
-    def clcTFIDF_with_TF_and_IDF(tf, idf)
+    # calculates TF-IDF by using TF and IDF
+    # returns hash {'word' => TF-IDF(word)} without duplicate
+    private def clcTFIDF_with_TF_and_IDF(tf, idf)
       tfidf = { }
       tf.each { |word|
         tfidf[word[0]] = tf[word[0]] * idf[word[0]]
@@ -42,8 +48,9 @@ module Sentiment
       return tfidf
     end
 
+    # calculates IDF of every word in list
+    # returns hash {'word' => TF-IDF(word)} without duplicate
     def clcTFIDF(list)
-      tfidf = { }
       tf = clcTF(list)
       idf = clcIDF(list)
       return clcTFIDF_with_TF_and_IDF(tf, idf)
