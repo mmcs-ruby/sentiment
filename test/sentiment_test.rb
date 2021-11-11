@@ -7,8 +7,5 @@ class SentimentTest < Minitest::Test
     refute_nil ::Sentiment::VERSION
   end
 
-  def test_it_does_something_useful
-    assert true
-  end
 end
 

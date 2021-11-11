@@ -25,7 +25,19 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: 
+To vectorize a list of word you need:
+
+• If you want to vectorize by TF, use clcTF(list) method.
+list - is list of words from text. Method will return hash, which
+look like {word1 => TF(word1), word2 => TF(word2), ... } without duplicate;
+
+• If you want to vectorize by IDF, use clcIDF(list) method.
+list - is list of words from text. Method will return hash, which
+look like {word1 => IDF(word1), word2 => IDF(word2), ... } without duplicate;
+
+• If you want to vectorize by TF-IDF, use clcTFIDF(list) method.
+list - is list of words from text. Method will return hash, which
+look like {word1 => TF-IDF(word1), word2 => TF-IDF(word2), ... } without duplicate.
 
 1)to count frequency of each word in corpus you should use the first function -
 words_in_corpus_frequency
