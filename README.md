@@ -25,8 +25,52 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: 
 
+1)to count frequency of each word in corpus you should use the first function -
+words_in_corpus_frequency
+
+Example : 
+
+    input corpus is [%w[кот собак кот],%w[лаб контрольн контрольн семинар]]
+
+    output value : dictionary_frequency ( or hash )
+
+    dictionary_frequency = words_in_corpus_frequency(corpus)
+    
+    dictionary_frequency is {
+      'кот' => 2,'собак' => 1,'лаб' => 1,'контрольн' => 3,
+      'семинар' => 1 }
+
+2)to delete words with low (their frequency is lower than min_freq - the third argument) and
+high (their frequency is higher than max_freq - the fourth argument) frequency from input corpus 
+(the first argument) using dictionary_frequency (the second argument) you should use second function -
+delete_words_with_high_and_low_frequency
+
+Example:
+    
+    input corpus is [%w[рыбак актёр крокодил],%w[крокодил крокодил крокодил актёр],
+    %w[актёр рыбак крокодил крокодил],%w[крокодил крокодил актёр],%w[крокодил актёр крокодил],
+    %w[крокодил крокодил крокодил]]
+
+    dictionary_frequency = words_in_corpus_frequency(corpus) ( look the first function )
+
+    min_freq = 0.2 (the words with frequency < 0.2 should be deleted)
+
+    max_freq = 0.9 ( we should delete 1-0.9 = 0.1 = 10 % part of word with highest frequency - only one word )
+
+    output value : changed corpus
+    
+    corpus = delete_words_with_high_and_low_frequency(corpus,dictionary_frequency,min_freq,max_freq)
+
+    changed corpus is   [%w[актёр],
+                        %w[крокодил крокодил актёр],
+                        %w[актёр крокодил крокодил],
+                        %w[крокодил крокодил актёр],
+                        %w[крокодил актёр крокодил],
+                        %w[крокодил крокодил крокодил]]
+    
+    
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
