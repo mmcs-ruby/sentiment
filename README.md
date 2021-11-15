@@ -25,6 +25,15 @@ Or install it yourself as:
 
 ## Usage
 
+
+To tokenize list words you need to use function tokenization. As parameters of the function, you must pass: the text that you want to tokenize, a boolean value indicating whether you want to bring all words to the same case (lower), and an integer value - the minimum length of the words that you want to include in the result. The function will return an array of words.
+
+Example:
+tokenization('Классификация текстов (документов) (англ. Document classification)
+— задача компьютерной лингвистики 1888-1907', false, 3)
+
+function return ["Классификация", "текстов", "документов", "англ", "Document", "classification", "задача", "компьютерной", "лингвистики"]
+
 Sentiment Simple Model Module:
 
 This is the list of simple functions, that you can use for preliminary simple sentiment analysis of your text file or input string.
