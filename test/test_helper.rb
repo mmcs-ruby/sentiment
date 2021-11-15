@@ -12,3 +12,4 @@ PATH_TO_TEST_FILES = "test/data"
 def test_files_path(filename)
   File.join(PATH_TO_TEST_FILES, filename)
 end
+
