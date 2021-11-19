@@ -25,7 +25,50 @@ Or install it yourself as:
 
 ## Usage
 
+
+To tokenize list words you need to use function tokenization. As parameters of the function, you must pass: the text that you want to tokenize, a boolean value indicating whether you want to bring all words to the same case (lower), and an integer value - the minimum length of the words that you want to include in the result. The function will return an array of words.
+
+Example:
+tokenization('Классификация текстов (документов) (англ. Document classification)
+— задача компьютерной лингвистики 1888-1907', false, 3)
+
+function return ["Классификация", "текстов", "документов", "англ", "Document", "classification", "задача", "компьютерной", "лингвистики"]
+
+Sentiment Simple Model Module:
+
+This is the list of simple functions, that you can use for preliminary simple sentiment analysis of your text file or input string.
+
+It consists of:
+
+simple_input(inp_text). This function has input string (named inp_text). It returns processed text in hash, that consists of: key and value, where key is word in text and value - frequency of this word. 
+Example: input = "My name is Deleted Name". Result = { "my" => 1, "name" => 2, "is" => 1, "deleted" => 1 }
+Usage example: ProcessedText = SimpleM.new.simple_input("My name is Deleted Name")
+
+simple_input_file(name). This function works like previous, but it takes name of your text file in input parameter called "name".
+Usage example: ProcessedText = SimpleM.new.simple_input_file("text.txt")
+
+read_keywords(name). This function reads groups of your emotional keywords for sentiment analysis from your text file in input parameter called "name". File consists of strings whith different words. One string in this file is one emotional group. Words in every string must be splitted by ' '. It returns hash where key is number of emotional group. And value is array of words from this emotional group. This hash is our database for sentiment analysis of your text.
+Example:
+keywords.txt
+(your file)
+Агрессия Злоба гнев
+печаЛЬ
+радость счастье
+(end of your file) ===> { 0 => ["агрессия", "злоба", "гнев"], 1 => ["печаль"], 2 => ["радость", "счастье"] }
+Usage example: keys = SimpleM.new.read_keywords("keywords.txt")
+
+simple_sentiment(keys, txt). This function can give us information about keywords in text and about emotions of speaker. It's oversimplified model. Its receive 2 hashes - keys and processed text. This hashes are results of work of our previous functions. Result of this function is... hash! Key of hash is number of emotional group, value is number of emotional point for this key on this text.
+Usage example + example:
+keys = { 0 => ["агрессия", "злоба", "гнев"], 1 => ["печаль"], 2 => ["радость", "счастье"] }
+txt = { "испытываю" => 1, "гнев" => 2, "и" => 2, "печаль" => 1, "меня" => 1, "гложит" => 1, "злоба" => 1 }
+res = SimpleM.new.simple_sentiment(keys, txt)
+res ===> { 0 => 15, 1 => 5, 2 => 0 }
+
+call_simple_sentiment_default. This function just calls previous function with default parameters.
+Usage example: res = SimpleM.new.call_simple_sentiment_default
+
 To vectorize a list of word you need:
+
 
 • If you want to vectorize by TF, use clcTF(list) method.
 list - is list of words from text. Method will return hash, which
