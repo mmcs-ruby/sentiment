@@ -6,7 +6,7 @@ class BaseModelTest < Minitest::Test
   include Sentiment::Base
 
   def test_different_case
-    assert_equal base_analysis("test1.txt"),{"hap"=>1, "agr"=>1, "sad"=>0};
+    assert_equal( {"hap"=>1, "agr"=>1, "sad"=>0}, base_analysis("./lib/sentiment/test1.txt"))
   end
 
 
