@@ -15,10 +15,10 @@ module Sentiment
     end
 
     def base_analysis(fn)
-      text = open_file(fn, "norm")
-      hap_h = open_file("happy.txt", "hap")
-      agr_h = open_file("agr.txt", "agr")
-      sad_h = open_file("sad.txt", "sad")
+     text = open_file(fn, "norm")
+      hap_h = open_file("./lib/sentiment/happy.txt", "hap")
+      agr_h = open_file("./lib/sentiment/agr.txt", "agr")
+      sad_h = open_file("./lib/sentiment/sad.txt", "sad")
       emotions = [*hap_h, *agr_h, *sad_h].to_h
       text_em = text.select { |key, value| emotions.has_key?(key) }
       res = Hash.new
